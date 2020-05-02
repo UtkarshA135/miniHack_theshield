@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1079248102128",
+    "firebase_url": "https://fitnessapp-28c08.firebaseio.com",
+    "project_id": "fitnessapp-28c08",
+    "storage_bucket": "fitnessapp-28c08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079248102128:android:a1d9a0b6897aeb21129835",
+        "android_client_info": {
+          "package_name": "com.fitnesss.minihack_theshield"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079248102128-muv3c74oiadc35n9g8n6tj70vvb83d36.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYvWlMNKJ8L3P-_S_ehhXyXZ9H1doOGN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079248102128-muv3c74oiadc35n9g8n6tj70vvb83d36.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
