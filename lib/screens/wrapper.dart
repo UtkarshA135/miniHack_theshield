@@ -1,6 +1,6 @@
 import 'package:minihack_theshield/screens/authenticate/authenticate.dart';
 import 'package:minihack_theshield/screens/authenticate/signup.dart';
-import 'package:minihack_theshield/screens/home/home.dart';
+import 'package:minihack_theshield/screens/home/pagecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:minihack_theshield/models/users.dart';
@@ -17,6 +17,6 @@ class Wrapper extends StatelessWidget {
      return Authenticate();
    }
    else 
-   return Home();
+   return NavigatoBAR();
   }
 }

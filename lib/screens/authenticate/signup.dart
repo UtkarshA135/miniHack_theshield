@@ -102,6 +102,7 @@ class _SignUpState extends State<SignIn> {
                    alignment: Alignment.center,
                  decoration: BoxDecoration(
                   // gradient: LinearGradient(colors: aquaGradients),
+                  color: Colors.lightGreenAccent,
                    borderRadius: BorderRadius.circular(50.0)
                  ),
                  child: Padding(
