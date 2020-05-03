@@ -1,6 +1,7 @@
 import 'package:minihack_theshield/screens/authenticate/register.dart';
 import 'package:minihack_theshield/screens/authenticate/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:theme_provider/theme_provider.dart';
 class Authenticate extends StatefulWidget {
   @override
   _AuthenticateState createState() => _AuthenticateState();
@@ -20,11 +21,11 @@ class _AuthenticateState extends State<Authenticate> {
     if (isSignIn)
     {
       return
-      PageViewWidget(toggleView : toggleView);
+      ThemeConsumer(child :PageViewWidget(toggleView : toggleView));
       // Register( toggleView : toggleView);
     }
     else
     {
-    return SignIn( toggleView : toggleView);
+    return ThemeConsumer( child :SignIn( toggleView : toggleView));
   }}
 }

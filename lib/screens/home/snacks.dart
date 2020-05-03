@@ -8,7 +8,9 @@ class _SnacksState extends State<Snacks> {
    int _rowsPerPage = PaginatedDataTable.defaultRowsPerPage;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return   Scaffold(appBar: AppBar(title: Text('Snacks ',
+       ),
+    ),body :SingleChildScrollView(
       child: PaginatedDataTable(
         header: Text('Snacks items'),
         rowsPerPage: _rowsPerPage,
@@ -21,7 +23,7 @@ class _SnacksState extends State<Snacks> {
         columns: kTableColumns,
         source: DessertDataSource(),
       ),
-    );
+    ));
   }
 }
 const kTableColumns = <DataColumn>[

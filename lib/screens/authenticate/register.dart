@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:minihack_theshield/screens/authenticate/signup.dart';
-import 'package:minihack_theshield/screens/home/intro.dart';
+
 import 'package:minihack_theshield/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -232,7 +232,10 @@ class _PageViewWidgetState extends State<PageViewWidget> {
                             key: _formkey,
                             child: Column(children: <Widget>[
                               SizedBox(height: 100),
-                              
+                                 CircleAvatar(backgroundImage: AssetImage('assets/appicon.jpg') ,
+                                 radius: 30.0
+                                 ),
+                                 SizedBox(height :10),
                                 Text("Welcome to",style: TextStyle(fontSize: 20),),
                                 SizedBox(height: 10.0),
                                 
@@ -493,10 +496,7 @@ class _PageViewWidgetState extends State<PageViewWidget> {
                                         });
                                       }
                                     }
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Intro()));
+                                 
                                   },
                                 ),
                               ),

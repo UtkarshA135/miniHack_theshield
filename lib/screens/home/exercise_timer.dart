@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
-
-
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class ExeTimer extends StatefulWidget {
   String t;
   String n;
-  ExeTimer({this.t,this.n});
+  String m;
+  ExeTimer({this.t,this.n,this.m});
  
   @override
-  ExeTimerState createState() => ExeTimerState(time: t, name: n);
+  ExeTimerState createState() => ExeTimerState(time: t, name: n, music :m);
 }
 
 class ExeTimerState extends State<ExeTimer> with TickerProviderStateMixin {
+   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final CollectionReference userCollection = Firestore.instance.collection('users');
+   final FirebaseAuth _auth = FirebaseAuth.instance;
+   Duration _duration = new Duration();
+  Duration _position = new Duration();
+  AudioPlayer advancedPlayer;
+  AudioCache audioCache;
 
   AnimationController controller;
 String time;
 String name;
-  ExeTimerState({this.time,this.name});
+String music;
+  ExeTimerState({this.time,this.name, this.music});
   // bool isPlaying = false;
 
   String get timerString {
@@ -28,11 +38,33 @@ String name;
   @override
   void initState() {
     super.initState();
+    initPlayer();
+    setpoint();
     controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: int.parse(time)),
     );
+  }
+   setpoint() async  {
+    final FirebaseUser user =  await _auth.currentUser();
+    final uid = user.uid;
 
+    userCollection.document(uid).updateData({
+    'points':10,
+     } );
+  }
+  void initPlayer(){
+    advancedPlayer = new AudioPlayer();
+    audioCache = new AudioCache(fixedPlayer: advancedPlayer);
+
+    advancedPlayer.durationHandler = (d) => setState(() {
+      _duration = d;
+    });
+
+    advancedPlayer.positionHandler = (p) => setState(() {
+    _position = p;
+    });
+  }
     // ..addStatusListener((status) {
     //     if (controller.status == AnimationStatus.dismissed) {
     //       setState(() => isPlaying = false);
@@ -40,7 +72,7 @@ String name;
 
     //     print(status);
     //   })
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -124,8 +156,12 @@ String name;
                       // setState(() => isPlaying = !isPlaying);
 
                       if (controller.isAnimating) {
+                         advancedPlayer.pause();
+                         advancedPlayer.stop();
                         controller.stop(canceled: true);
                       } else {
+                         audioCache.play(music);
+                      
                         controller.reverse(
                             from: controller.value == 0.0
                                 ? 1.0

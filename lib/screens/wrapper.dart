@@ -4,7 +4,7 @@ import 'package:minihack_theshield/screens/home/pagecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:minihack_theshield/models/users.dart';
-
+import 'package:theme_provider/theme_provider.dart';
 //import 'package:covidate/screens/home/pagecontroller.dart';
 class Wrapper extends StatelessWidget {
   @override
@@ -14,9 +14,9 @@ class Wrapper extends StatelessWidget {
    if (user == null)
    {
    
-     return Authenticate();
+     return ThemeConsumer(child: Authenticate());
    }
    else 
-   return NavigatoBAR();
+   return ThemeConsumer(child:  NavigatoBAR());
   }
 }

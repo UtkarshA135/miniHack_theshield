@@ -16,5 +16,6 @@ class UserData
    final double bmi;
   final String status;
   final double bmr;
-  UserData({this.uid,this.name,this.age,this.gender,this.height,this.weight,this.goalweight,this.bmi,this.status,this.bmr});
+  final int points;
+  UserData({this.uid,this.name,this.age,this.gender,this.height,this.weight,this.goalweight,this.bmi,this.status,this.bmr,this.points});
 }

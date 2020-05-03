@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'models/users.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:io';
+import 'package:theme_provider/theme_provider.dart';
 
   
 void main() {
@@ -13,7 +14,8 @@ void main() {
     if (kReleaseMode)
       exit(1);
   };
-runApp(MyApp());}
+runApp(MyApp(),
+);}
  
 class MyApp extends StatelessWidget {
  
@@ -21,12 +23,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    
-    return  StreamProvider<User>.value(
-      
+    return  
+       ThemeProvider(
+      saveThemesOnChange: true,
+      loadThemeOnInit: true,
+      themes: <AppTheme>[
+        AppTheme.light(),
+        AppTheme.dark(),],
+        child:
+    StreamProvider<User>.value(
+          
            value : AuthService().user,
             child : MaterialApp(
-      home :Wrapper(),
+               theme: ThemeData(
+        canvasColor: Colors.blueGrey,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        accentColor: Colors.pinkAccent,
+        brightness: Brightness.dark,
+      ),
+      home :ThemeConsumer(
+
+      child:
+      Wrapper(),),
       debugShowCheckedModeBanner: false,),
-    );
+       ));
   }
 }

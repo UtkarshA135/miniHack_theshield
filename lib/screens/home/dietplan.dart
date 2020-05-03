@@ -11,6 +11,7 @@ import 'package:minihack_theshield/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:minihack_theshield/models/users.dart';
 import 'package:minihack_theshield/services/database.dart';
+import 'package:theme_provider/theme_provider.dart';
 class DietPlan extends StatefulWidget {
   @override
   _DietPlanState createState() => _DietPlanState();
@@ -36,7 +37,7 @@ class _DietPlanState extends State<DietPlan> {
   Widget build(BuildContext context) {
 
     var options =['Breakfast','Lunch','Snacks','Dinner'];
-    //var images =[];
+    var images =['assets/breakfast1.jpg','assets/lunch.jpg','assets/snacks1.jpg','assets/dinner2.jpg'];
    var routes = [ Breakfast(),
    Lunch(),
    Snacks(),
@@ -71,9 +72,19 @@ class _DietPlanState extends State<DietPlan> {
 //print(userData.url);
            //return 
              return
-             SafeArea(child: 
-        Container(
-             child: Center(
+             
+           SafeArea(child: 
+         
+             
+          
+        Scaffold(
+                  appBar: AppBar(
+       title : Text('Diet Plan',style: TextStyle(fontSize: 30,  fontFamily: 'Pacifico', color: Colors.white),),
+       centerTitle : true,
+       backgroundColor: Colors.greenAccent,
+                 ),
+              
+             body: Center(
            
               
          child :GridView.count(crossAxisCount: 2,
@@ -91,13 +102,14 @@ class _DietPlanState extends State<DietPlan> {
            //child: Padding(padding: EdgeInsets.all(8.0),
             child: Column(children: <Widget>[
               CircleAvatar(
-                backgroundImage: AssetImage(''),
+                backgroundImage: AssetImage(images[index]),
+                radius: 50.0,
               ),
               Text(options[index]),
              IconButton(icon: Icon(Icons.add), onPressed: (){
                Navigator.of(context).push(
              MaterialPageRoute(
-               builder: (context) => routes[index],
+               builder: (context) => ThemeConsumer( child :routes[index]),
              ));
              })
             ],),
@@ -107,7 +119,7 @@ class _DietPlanState extends State<DietPlan> {
            }
      ))
        
-               ))  );
+               )));
     
          
 }

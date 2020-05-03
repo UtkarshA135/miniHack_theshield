@@ -32,6 +32,23 @@ class _ResetPassState extends State<ResetPass> {
         padding: EdgeInsets.only(top:50.0),
         child : Column(
           children: <Widget>[
+             SizedBox(height: 40),
+                                 CircleAvatar(backgroundImage: AssetImage('assets/appicon.jpg') ,
+                                 radius: 30.0
+                                 ),
+                                 SizedBox(height :10),
+                                Text("Welcome to",style: TextStyle(fontSize: 20),),
+                                SizedBox(height: 10.0),
+                                
+                              
+                              Text('Ctrl-ALt-Zen',style: TextStyle(
+                                  fontSize: 30, fontFamily: 'Pacifico'),),
+                                  SizedBox(height: 10.0),
+
+                             
+                               Text("Rest a while and run a mile!",style: TextStyle(fontSize: 20),),
+                               
+                              
           
             Padding(
              padding: EdgeInsets.fromLTRB(20.0, 50.0, 10.0 , 5.0),

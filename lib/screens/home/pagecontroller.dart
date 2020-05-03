@@ -6,6 +6,7 @@ import 'dietplan.dart';
 import 'progress.dart';
 import 'exercise.dart';
 import 'profile.dart';
+import 'package:theme_provider/theme_provider.dart';
 class NavigatoBAR extends StatefulWidget {
 
   @override
@@ -19,10 +20,10 @@ class _PagecontrollerState extends State<NavigatoBAR> {
   Widget build(BuildContext context) {
       
   final pageOption = [
- DietPlan(),
- Home(),
- Progress(),
- Profile(),
+ ThemeConsumer ( child :DietPlan()),
+ ThemeConsumer ( child :Home()),
+ ThemeConsumer ( child :Progress()),
+ ThemeConsumer ( child :Profile()),
 
   ];
     return Scaffold(
@@ -41,8 +42,8 @@ class _PagecontrollerState extends State<NavigatoBAR> {
         selected_page = index;
         });
     },
-    circleColor: Color(0xFF5AEAF1),
-    inactiveIconColor: Color(0xFF5AEAF1),
+    circleColor: Colors.greenAccent,
+    inactiveIconColor: Colors.greenAccent
        ),
 
      

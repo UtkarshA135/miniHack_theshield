@@ -3,6 +3,8 @@ import 'package:minihack_theshield/screens/authenticate/resetpass.dart';
 import 'package:minihack_theshield/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:minihack_theshield/shared/loading.dart';
+import 'package:neumorphic/neumorphic.dart';
+import 'package:theme_provider/theme_provider.dart';
 class SignIn extends StatefulWidget {
     final Function toggleView;
  SignIn({this.toggleView});
@@ -49,6 +51,23 @@ class _SignUpState extends State<SignIn> {
                child : Column(
               children: <Widget> [
                
+                
+                                 CircleAvatar(backgroundImage: AssetImage('assets/appicon.jpg') ,
+                                 radius: 50.0
+                                 ),
+                                 SizedBox(height :10),
+                                Text("Welcome to",style: TextStyle(fontSize: 20),),
+                                SizedBox(height: 10.0),
+                                
+                              
+                              Text('Ctrl-ALt-Zen',style: TextStyle(
+                                  fontSize: 30, fontFamily: 'Pacifico'),),
+                                  SizedBox(height: 10.0),
+
+                             
+                               Text("Rest a while and run a mile!",style: TextStyle(fontSize: 20),),
+                               
+                              
                 SizedBox(height: 20.0),
                TextFormField(
                  decoration: InputDecoration(
@@ -130,6 +149,7 @@ class _SignUpState extends State<SignIn> {
                   
                   }
                  },),
+                 
                 FlatButton(
                  child: Text("Forgot Password?"),
                    onPressed: (){  Navigator.push(context, MaterialPageRoute(builder: (context)=> ResetPass() ));

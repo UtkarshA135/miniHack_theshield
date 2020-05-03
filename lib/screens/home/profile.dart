@@ -1,4 +1,3 @@
-
 import 'package:minihack_theshield/services/database.dart';
 import 'package:minihack_theshield/shared/loading.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:neumorphic/neumorphic.dart';
 import 'package:minihack_theshield/services/auth.dart';
 import 'settings.dart';
-
+import 'package:theme_provider/theme_provider.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 class Profile extends StatefulWidget {
   @override
@@ -24,7 +23,7 @@ class _ProfileState extends State<Profile> {
     showModalBottomSheet(context: context, builder: (context){
         return Container(
           padding : EdgeInsets.symmetric(vertical : 20.0 , horizontal : 60.0),
-          child: Settings(),
+          child: ThemeConsumer ( child :Settings()),
 
         );
     }
@@ -70,7 +69,8 @@ class _ProfileState extends State<Profile> {
                    child: Column(
                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                      children: <Widget>[
-                       Container(
+                       Image.asset('assets/myprofile.jpg'),
+                       /*Container(
                          padding: EdgeInsets.only(top: 30.0, bottom: 20.0, left: 30.0),
                          alignment: Alignment.centerLeft,
                          child: Text('My Profile',
@@ -84,49 +84,49 @@ class _ProfileState extends State<Profile> {
                           ),
                           // textAlign: TextAlign.left,
                          ),
-                       ),
+                       ),*/
                       
 
                        Text(
                         userData.name+" , "+userData.age,
                           style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 25.0,
                             fontWeight: FontWeight.w500,
                             color: Colors.teal[500],
-                            fontFamily: 'Pacifico', 
+                          //  fontFamily: 'Pacifico', 
                             
                           ),
                        ),
                        Text('Height(cm) :'+" " + userData.height,
                        style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 25.0,
                             fontWeight: FontWeight.w500,
                             color: Colors.teal[500],
-                            fontFamily: 'Pacifico', 
+                           // fontFamily: 'Pacifico', 
                             
                           ),),
                            Text('Weight(kg) :'+" " + userData.weight,
                        style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 25.0,
                             fontWeight: FontWeight.w500,
                             color: Colors.teal[500],
-                            fontFamily: 'Pacifico', 
+                           // fontFamily: 'Pacifico', 
                             
                           ),),
                           Text('BMI :'+" " + userData.bmi.toString().substring(0,4),
                        style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 25.0,
                             fontWeight: FontWeight.w500,
                             color: Colors.teal[500],
-                            fontFamily: 'Pacifico', 
+                           // fontFamily: 'Pacifico', 
                             
                           ),),
                          Text(userData.status,
                           style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 28.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.teal[500],
-                            fontFamily: 'Pacifico', 
+                            color: Colors.black,
+                           fontFamily: 'Pacifico', 
                             
                           ),
                          )
@@ -162,11 +162,13 @@ class _ProfileState extends State<Profile> {
                                   style: TextStyle(
                                    fontFamily: 'Lobster',
                                    color: Colors.grey[700],
+                                   fontSize: 15,
                                   ),
                           )
                             ],
 
                          ),
+                   
                            Column(
                             children: <Widget>[
                               NeuButton(
@@ -181,6 +183,7 @@ class _ProfileState extends State<Profile> {
                                   style: TextStyle(
                                    fontFamily: 'Lobster',
                                    color: Colors.grey[700],
+                                   fontSize: 15
                                   ),
                                  )
                              ],
@@ -190,7 +193,7 @@ class _ProfileState extends State<Profile> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0, top: 50.0),
                       child: RotateAnimatedTextKit(
-                        text: ['Just know that I would die for you', "You're my favorite kind of night","I'm just tryna get you out the friend zone",] ,
+                        text: ['Sore today strong tomorrow', "If you get tired learn to rest not to quit","If it was easy everybody would do it",] ,
                         duration: Duration(seconds: 6),
                         textStyle: TextStyle(
                           fontSize: 20.0,

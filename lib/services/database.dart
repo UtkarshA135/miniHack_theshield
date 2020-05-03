@@ -56,7 +56,7 @@ async
       }
   return await userCollection.document(uid).setData({
     //'imageURL ': imageURL,
-    ''
+    
     'name' : name,
     'weight':weight,
     'height':height,
@@ -67,6 +67,7 @@ async
     'bmi' : bmi,
     'status':status,
     'bmr':bmr,
+    'points':0,
    } );
    
 }
@@ -82,6 +83,7 @@ UserData _userDatafromSnapshot(DocumentSnapshot snapshot){
     bmi :snapshot.data['bmi'],
     status: snapshot.data['status'],
     bmr : snapshot.data['bmr'],
+    
    );
 }
 
