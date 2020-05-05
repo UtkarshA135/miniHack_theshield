@@ -92,8 +92,8 @@ class _ProfileState extends State<Profile> {
                           style: TextStyle(
                             fontSize: 25.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.teal[500],
-                          //  fontFamily: 'Pacifico', 
+                            color: Colors.black,
+                           fontFamily: 'Pacifico', 
                             
                           ),
                        ),
@@ -101,24 +101,24 @@ class _ProfileState extends State<Profile> {
                        style: TextStyle(
                             fontSize: 25.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.teal[500],
-                           // fontFamily: 'Pacifico', 
+                            color: Colors.black,
+                            fontFamily: 'Pacifico', 
                             
                           ),),
                            Text('Weight(kg) :'+" " + userData.weight,
                        style: TextStyle(
                             fontSize: 25.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.teal[500],
-                           // fontFamily: 'Pacifico', 
+                            color: Colors.black,
+                           fontFamily: 'Pacifico', 
                             
                           ),),
                           Text('BMI :'+" " + userData.bmi.toString().substring(0,4),
                        style: TextStyle(
                             fontSize: 25.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.teal[500],
-                           // fontFamily: 'Pacifico', 
+                            color: Colors.black,
+                            fontFamily: 'Pacifico', 
                             
                           ),),
                          Text(userData.status,

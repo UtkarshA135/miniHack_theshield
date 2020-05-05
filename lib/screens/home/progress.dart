@@ -51,7 +51,7 @@ class Progress extends StatelessWidget {
                   width: 300,
                   alignment: Alignment.center,
                   child: Text(
-                    "200\$",
+                    "Surprise!",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 50,
