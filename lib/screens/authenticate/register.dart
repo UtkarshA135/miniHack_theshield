@@ -340,7 +340,7 @@ class _PageViewWidgetState extends State<PageViewWidget> {
                               Expanded(
                                 child: TextFormField(
                                   decoration: InputDecoration(
-                                    labelText: 'Enter weight',
+                                    labelText: 'Enter weight in kg',
                                     labelStyle: TextStyle(color: Colors.pink),
                                     prefixIcon: Icon(
                                       Icons.lock,
